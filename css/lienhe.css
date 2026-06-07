@@ -1,0 +1,489 @@
+/* ==========================
+   RESET
+========================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background-image:url("../assets/nen1.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:scroll;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.05);
+    z-index:-1;
+}
+
+/* ==========================
+   MENU
+========================== */
+.navbar{
+    background:rgba(27,94,32,.92);
+
+    backdrop-filter:blur(15px);
+
+    padding:18px 50px;
+
+    display:flex;
+    justify-content:center;
+    gap:40px;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 4px 20px rgba(0,0,0,.15);
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.navbar a:hover,
+.navbar a.active{
+    color:#ffd54f;
+}
+
+/* ==========================
+   TITLE
+========================== */
+.page-title{
+    text-align:center;
+
+    color:white;
+
+    font-size:56px;
+    font-weight:800;
+
+    margin:50px 0;
+
+    text-shadow:
+    0 4px 15px rgba(0,0,0,.35);
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:40px auto 60px;
+}
+
+/* ==========================
+   LAYOUT
+========================== */
+.checkout-layout{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+    align-items:start;
+}
+
+/* ==========================
+   KHUNG CHUNG
+========================== */
+.cart-column,
+.form-column{
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(12px);
+
+    padding:40px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.4);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08),
+    0 5px 15px rgba(0,0,0,.04);
+
+    transition:.35s ease;
+}
+
+.cart-column:hover,
+.form-column:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.12),
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+/* ==========================
+   GIỎ HÀNG
+========================== */
+.cart-item{
+    background:rgba(255,255,255,.95);
+
+    border-radius:22px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.05);
+
+    transition:.3s;
+}
+
+.cart-item:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.08);
+}
+
+.cart-item-details{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.cart-item-details strong{
+    color:#1b5e20;
+    font-size:22px;
+}
+
+.cart-item-details span{
+    color:#666;
+}
+
+.cart-item-right{
+    text-align:right;
+}
+
+.cart-item-total{
+    color:#e53935;
+
+    font-size:24px;
+    font-weight:bold;
+
+    margin-bottom:12px;
+}
+
+/* ==========================
+   NÚT XÓA
+========================== */
+.btn-delete-item{
+    border:none;
+
+    background:#e53935;
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn-delete-item:hover{
+    background:#c62828;
+}
+
+/* ==========================
+   TỔNG TIỀN
+========================== */
+.cart-summary-box{
+    margin-top:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.95),
+        rgba(245,255,244,.95)
+    );
+
+    border-radius:24px;
+
+    padding:30px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.06);
+}
+
+.cart-summary-box h3{
+    display:flex;
+    justify-content:space-between;
+
+    font-size:30px;
+
+    color:#1b5e20;
+}
+
+/* ==========================
+   NÚT XÓA GIỎ HÀNG
+========================== */
+.btn-clear-cart{
+    margin-top:20px;
+
+    border:none;
+
+    background:#ff9800;
+    color:white;
+
+    padding:14px 25px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn-clear-cart:hover{
+    background:#f57c00;
+}
+
+/* ==========================
+   FORM
+========================== */
+.form-group{
+    margin-bottom:22px;
+}
+
+.form-group label{
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:16px;
+    font-weight:600;
+
+    color:#1b5e20;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+
+    padding:16px 18px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#f7f9f8;
+
+    color:#333;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    background:white;
+
+    box-shadow:
+    0 0 0 4px rgba(76,175,80,.15);
+
+    transform:translateY(-2px);
+
+    outline:none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:#999;
+}
+
+textarea{
+    resize:none;
+}
+
+/* ==========================
+   NÚT THANH TOÁN
+========================== */
+.btn-buy{
+    width:100%;
+    height:58px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2e7d32,
+        #43a047
+    );
+
+    color:white;
+
+    font-size:18px;
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.btn-buy:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 12px 25px rgba(46,125,50,.35);
+}
+
+/* ==========================
+   KHUNG LIÊN HỆ
+========================== */
+.contact-info-box{
+    max-width:1000px;
+
+    margin:60px auto;
+
+    background:rgba(255,255,255,.9);
+
+    backdrop-filter:blur(10px);
+
+    padding:40px;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.08);
+}
+
+.contact-info-box h3{
+    text-align:center;
+
+    color:#1b5e20;
+
+    font-size:34px;
+
+    margin-bottom:30px;
+}
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+}
+
+.contact-grid div{
+    background:#f8fff7;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.04);
+}
+
+.contact-grid a{
+    color:#1b5e20;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* ==========================
+   GIỎ HÀNG TRỐNG
+========================== */
+.empty-message{
+    text-align:center;
+
+    padding:50px;
+
+    color:#666;
+
+    font-size:18px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media(max-width:992px){
+
+    .checkout-layout{
+        grid-template-columns:1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .page-title{
+        font-size:42px;
+    }
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        gap:20px;
+        flex-wrap:wrap;
+        padding:15px;
+    }
+
+    .page-title{
+        font-size:34px;
+    }
+
+    .cart-item{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .cart-item-right{
+        text-align:left;
+    }
+
+    .cart-summary-box h3{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .cart-column,
+    .form-column{
+        padding:25px;
+    }
+}
+footer {
+    background: #2d5a27;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}

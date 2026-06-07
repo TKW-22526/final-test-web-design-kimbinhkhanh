@@ -1,0 +1,243 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    /* ĐỔI: Thay nền xám lạnh bằng màu kem nhạt dịu mắt, ấm áp như nắng sớm */
+    background-color: #fbf9f5; 
+    color: #3e2723; /* ĐỔI: Chữ màu nâu đất đậm thay vì màu đen xì chói mắt */
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Menu Điều Hướng (Navbar) --- */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    text-align: center;
+    /* ĐỔI: Đổ bóng màu nâu ấm nhẹ */
+    box-shadow: 0 3px 6px rgba(93, 64, 55, 0.06); 
+    margin-bottom: 20px;
+    border-bottom: 3px solid #417505; /* THÊM: Viền xanh lá định hình thương hiệu nông sản */
+}
+
+.navbar{
+    background:#1b5e20;
+    padding:15px 50px;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active{
+    color:#ffd54f;
+}
+
+/* --- Bố Cục Chia Đôi Nội Dung --- */
+.detail-wrapper {
+    display: flex;
+    gap: 40px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px; /* ĐỔI: Góc bo tròn hơn tạo cảm giác mềm mại, không góc cạnh */
+    box-shadow: 0 4px 15px rgba(93, 64, 55, 0.08); /* ĐỔI: Bóng đổ ấm áp */
+    border: 1px solid #e8e0d5; /* THÊM: Viền mộc mạc bao quanh */
+}
+
+/* Vùng hiển thị ảnh bên trái */
+.detail-left {
+    flex: 1;
+    max-width: 400px;
+    border: 2px dashed #c8bca6; /* ĐỔI: Viền nét đứt màu đất mộc mạc thay vì viền xám cứng */
+    border-radius: 12px; /* ĐỔI: Bo tròn góc ảnh */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+}
+
+.detail-left img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/* Vùng hiển thị thông tin bên phải */
+.detail-right {
+    flex: 1.2;
+}
+
+#detail-name {
+    font-size: 28px; /* ĐỔI: To lên một chút cho rõ ràng */
+    color: #417505; /* ĐỔI: Xanh lá tươi tốt tươi tắn, khỏe khoắn */
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.price-tag {
+    font-size: 26px; /* ĐỔI: Tăng kích thước giá tiền lên để các bác nhìn rõ ngay lập tức */
+    color: #c0392b; /* ĐỔI: Màu đỏ thẫm/đỏ đô, sang trọng và rất rõ chữ */
+    font-weight: bold;
+    margin: 15px 0;
+    background-color: #fdf2f2; /* THÊM: Nền hồng nhạt bao quanh giá tiền để làm nổi bật giá */
+    padding: 8px 15px;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+.desc-box {
+    border-top: 1px solid #e8e0d5; /* ĐỔI: Viền màu đất nhạt */
+    padding-top: 15px;
+    margin-bottom: 20px;
+}
+
+.desc-box h4 {
+    margin: 0 0 8px 0;
+    color: #2e5602; /* ĐỔI: Tiêu đề mô tả màu xanh rêu */
+    font-size: 17px;
+}
+
+#detail-desc {
+    color: #5d4037; /* ĐỔI: Chữ mô tả màu nâu đậm rõ nét, dễ đọc, không dùng màu xám mờ */
+    line-height: 1.7;
+    font-size: 16px; /* ĐỔI: Tăng cỡ chữ lên 16px giúp người lớn tuổi không cần nheo mắt */
+}
+
+/* Ô chọn số lượng */
+.quantity-box {
+    margin-bottom: 25px;
+    background: #f1f8e9; /* THÊM: Khung nền xanh non nhạt cho khu vực chọn số lượng */
+    padding: 12px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.quantity-box label { 
+    font-weight: bold; 
+    color: #3e2723; 
+    font-size: 16px;
+}
+
+.quantity-box input {
+    width: 65px; /* ĐỔI: Rộng hơn chút để dễ bấm, dễ nhìn */
+    padding: 8px;
+    text-align: center;
+    margin: 0 8px;
+    border: 2px solid #417505; /* ĐỔI: Viền màu xanh lá nổi bật để biết đây là chỗ nhập được */
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.unit-text { 
+    color: #5d4037; /* ĐỔI: Đậm rõ hơn (ví dụ: Bao, Tạ, Kg...) */
+    font-weight: 600;
+}
+
+/* Nút Mua Hàng Động */
+.btn-buy {
+    background-color: #e67e22; /* ĐỔI: Màu cam tươi/cam đất - kích thích mua hàng và tràn đầy năng lượng ruộng vườn */
+    color: white;
+    border: none;
+    padding: 14px 35px; /* ĐỔI: Nút làm to hơn để bà con dùng điện thoại dễ bấm trúng */
+    font-size: 18px; /* ĐỔI: Chữ to rõ ràng */
+    font-weight: bold;
+    border-radius: 30px; /* ĐỔI: Bo tròn hẳn tạo sự mềm mại, thân thiện vô cùng */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3); /* THÊM: Đổ bóng cho nút nổi bật hẳn lên */
+    transition: all 0.2s;
+}
+
+.btn-buy:hover { 
+    background-color: #d35400; /* Cam đậm hơn khi rê chuột */
+    transform: translateY(-2px); /* Hiệu ứng nổi nhẹ sinh động */
+}
+
+.btn-loading { 
+    background-color: #ccc; 
+    color: #666; 
+    padding: 14px 35px; 
+    border: none; 
+    border-radius: 30px; 
+}
+
+/* Tương thích điện thoại */
+@media (max-width: 768px) {
+    .detail-wrapper { 
+        flex-direction: column; 
+        padding: 15px;
+    }
+    .detail-left {
+        max-width: 100%;
+    }
+    #detail-name {
+        font-size: 24px;
+    }
+}
+/* --- NÚt --- */
+.btn-back {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background-color: #f1f8e9; /* Màu nền xanh non nhạt */
+    color: #417505; /* Màu chữ xanh lá đậm */
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px; /* Bo tròn hoàn toàn */
+    border: 1px solid #417505;
+    transition: all 0.3s ease;
+    font-size: 14px;
+     float:left;
+}
+
+.btn-back:hover {
+    background-color: #417505;
+    color: #ffffff;
+    padding-left: 20px; /* Hiệu ứng đẩy nhẹ khi di chuột */
+}
+.btn-go {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background-color: #f1f8e9;
+    color: #417505;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 1px solid #417505;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    float:right;
+}
+
+.btn-go:hover {
+    background-color: #417505;
+    color: #ffffff;
+    padding-left: 20px;
+}
+.btn-go{
+display:block;
+width:fit-content;
+margin-left:auto;
+}
+footer {
+    background: #2d5a27;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}

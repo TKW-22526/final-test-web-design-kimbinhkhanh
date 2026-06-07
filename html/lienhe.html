@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Vật Tư Nông Nghiệp Anh Hai</title>
+    <link rel="stylesheet" href="../css/lienhe.css">
+</head>
+<body>
+    <nav class="navbar">
+         <a href="trangchu.html">Trang Chủ</a>
+        <a href="gioithieu.html">Giới Thiệu</a>
+        <a href="sanpham.html">Sản Phẩm</a>
+        <a href="lienhe.html" class="active">Liên Hệ & Giỏ Hàng</a>
+    </nav>
+
+    <main class="container">
+        <div class="checkout-layout">
+            
+            <div class="cart-column">
+                <h2>🛒 Giỏ Hàng Của Bạn</h2>
+                
+                <div id="danh-sach-gio-hang"></div>
+                
+                <div class="cart-summary-box">
+                    <h3>
+                        <span>Tổng thanh toán:</span>
+                        <span id="tong-tien" style="color: red; font-weight: bold;">0đ</span>
+                    </h3>
+                    <button onclick="xoaToanBoGioHang()" class="btn-clear-cart" id="btn-clear" style="display: none;">Xóa Sạch Giỏ Hàng</button>
+                </div>
+            </div>
+
+            <div class="form-column">
+                <h2> Thông Tin Xác Nhận Đơn Hàng</h2>
+                <form onsubmit="alert('Cảm ơn bạn đã liên hệ đặt hàng! Chúng tôi sẽ gọi lại ngay để xác nhận đơn.'); xoaSachKhiDatHangXong(); return false;">
+                    <div class="form-group">
+                        <label for="name">Họ và Tên:</label>
+                        <input type="text" id="name" required placeholder="Nhập họ và tên của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số Điện Thoại:</label>
+                        <input type="tel" id="phone" required placeholder="Nhập số điện thoại của bạn">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Địa Chỉ Nhận Hàng:</label>
+                        <textarea id="address" rows="3" required placeholder="Nhập địa chỉ của bạn"></textarea>
+                    </div>
+                    <button type="submit" class="btn-buy" style="background-color: #4CAF50;">Gửi Đơn Hàng & Liên Hệ</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <section class="contact-info-box">
+            <h3>Mọi Thắc Mắc Liên Hệ Qua Thông Tin</h3>
+            <div class="contact-grid">
+                <div>
+                    <p><strong>📍 Địa chỉ:</strong>Đường Hùng Vương,Ấp Phước Tiền, Xã Thường Phước, Tỉnh Đồng Tháp.</p>
+                </div>
+                <div>
+                    <p><strong>📞 Hotline/Zalo:</strong> <a href="tel:0814256932">0814 256 932</a> (Hỗ trợ 24/7)</p>
+                </div>
+                 <div>
+                    <p><strong>📞 Facebook:</strong> <a href="https://www.facebook.com/share/188ZHYERyW/" target="_blank">Cửa hàng Anh Hai</a></p>
+                </div>
+                <div>
+                    <p><strong>📧 Email:</strong> binhkhanh572@gmail.com</p>
+                </div>
+            </div>
+        </section>
+    <script src="../js/script.js"></script>
+
+    <script>
+        function taiDuLieuGioHang() {
+            const vungChua = document.getElementById('danh-sach-gio-hang');
+            const nutXoa = document.getElementById('btn-clear');
+            if (!vungChua) return;
+
+            // Lấy danh sách sản phẩm người dùng đã click "Thêm Vào Giỏ" từ LocalStorage
+            let gioHang = JSON.parse(localStorage.getItem('gioHang')) || [];
+
+            if (gioHang.length === 0) {
+                vungChua.innerHTML = '<p class="empty-message">Giỏ hàng của bạn đang trống. Hãy quay lại mục Sản Phẩm để chọn mua hàng!</p>';
+                document.getElementById('tong-tien').innerText = '0 vnđ';
+                if (nutXoa) nutXoa.style.display = 'none';
+                return;
+            }
+
+            if (nutXoa) nutXoa.style.display = 'inline-block';
+            vungChua.innerHTML = ''; // Reset vùng chứa
+            let tongTien = 0;
+
+            // Vòng lặp duyệt qua từng sản phẩm trong giỏ và vẽ ra giao diện
+            gioHang.forEach(item => {
+                let thanhTien = item.price * item.soluong;
+                tongTien += thanhTien;
+
+                const itemRow = document.createElement('div');
+                itemRow.className = 'cart-item';
+                itemRow.innerHTML = `
+                    <div class="cart-item-details">
+                        <strong>${item.name}</strong>
+                        <span>Giá: ${item.price.toLocaleString('vi-VN')} đ x Số lượng: ${item.soluong}</span>
+                    </div>
+                    <div class="cart-item-total">
+                        ${thanhTien.toLocaleString('vi-VN')} vnđ
+                    </div>
+                `;
+                vungChua.appendChild(itemRow);
+            });
+
+            // In tổng số tiền ra thẻ ID tong-tien của bạn
+            document.getElementById('tong-tien').innerText = tongTien.toLocaleString('vi-VN') + ' vnđ';
+        }
+
+        // Hàm xóa toàn bộ giỏ hàng
+        function xoaToanBoGioHang() {
+            if (confirm("Bạn có chắc chắn muốn xóa hết tất cả mặt hàng trong giỏ không?")) {
+                localStorage.removeItem('gioHang');
+                taiDuLieuGioHang();
+            }
+        }
+
+        // Xóa giỏ hàng sau khi đặt thành công
+        function xoaSachKhiDatHangXong() {
+            localStorage.removeItem('gioHang');
+            taiDuLieuGioHang();
+        }
+
+        // Đợi trang load xong hoàn toàn thì tự chạy hàm đổ dữ liệu
+        window.addEventListener('DOMContentLoaded', taiDuLieuGioHang);
+        function taiDuLieuGioHang() {
+    const vungChua = document.getElementById('danh-sach-gio-hang');
+    const nutXoaSach = document.getElementById('btn-clear');
+    if (!vungChua) return;
+
+    // Lấy danh sách sản phẩm từ LocalStorage
+    let gioHang = JSON.parse(localStorage.getItem('gioHang')) || [];
+
+    if (gioHang.length === 0) {
+        vungChua.innerHTML = '<p class="empty-message">Giỏ hàng của bạn đang trống. Hãy quay lại mục Sản Phẩm để chọn mua hàng!</p>';
+        document.getElementById('tong-tien').innerText = '0 vnđ';
+        if (nutXoaSach) nutXoaSach.style.display = 'none';
+        return;
+    }
+
+    if (nutXoaSach) nutXoaSach.style.display = 'inline-block';
+    vungChua.innerHTML = ''; // Reset vùng chứa
+    let tongTien = 0;
+
+    // Vòng lặp duyệt qua từng sản phẩm
+    gioHang.forEach(item => {
+        let thanhTien = item.price * item.soluong;
+        tongTien += thanhTien;
+
+        const itemRow = document.createElement('div');
+        itemRow.className = 'cart-item';
+        itemRow.innerHTML = `
+            <div class="cart-item-details">
+                <strong>${item.name}</strong>
+                <span>Giá: ${item.price.toLocaleString('vi-VN')} đ x Số lượng: ${item.soluong}</span>
+            </div>
+            <div class="cart-item-right">
+                <div class="cart-item-total">
+                    ${thanhTien.toLocaleString('vi-VN')} vnđ
+                </div>
+                <button onclick="xoaMotSanPham(${item.id})" class="btn-delete-item" title="Xóa sản phẩm này">Xóa</button>
+            </div>
+        `;
+        vungChua.appendChild(itemRow);
+    });
+
+    // Cập nhật tổng số tiền thanh toán
+    document.getElementById('tong-tien').innerText = tongTien.toLocaleString('vi-VN') + ' vnđ';
+}
+
+// --- HÀM XỬ LÝ XÓA TỪNG SẢN PHẨM THEO ID ---
+function xoaMotSanPham(id) {
+    // Lấy giỏ hàng hiện tại ra
+    let gioHang = JSON.parse(localStorage.getItem('gioHang')) || [];
+    
+    // Lọc bỏ sản phẩm có id trùng với id vừa nhấn nút xóa
+    let gioHangMoi = gioHang.filter(item => item.id !== id);
+    
+    // Lưu lại mảng mới vào LocalStorage
+    localStorage.setItem('gioHang', JSON.stringify(gioHangMoi));
+    
+    // Vẽ lại giao diện giỏ hàng ngay lập tức
+    taiDuLieuGioHang();
+}
+    </script>
+    <footer>
+    <p>&copy; 2026 Vật Tư Nông Nghiệp Anh Hai. Tất cả các sản phẩm được phân phối bởi công ty Syngenta Việt Nam và phân bón dầu khí Cà Mau.</p>
+    </footer>
+</body>
+</html>

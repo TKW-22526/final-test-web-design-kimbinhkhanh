@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Vật Tư Nông Nghiệp Anh Hai</title>
+    <link rel="stylesheet" href="../css/chitiet.css">
+</head>
+<body>
+    <nav class="navbar">
+            <a href="trangchu.html">Trang Chủ</a>
+            <a href="gioithieu.html">Giới Thiệu</a>
+            <a href="sanpham.html">Sản Phẩm</a>
+            <a href="chitiet.html" class="active">Chi Tiết</a>
+            <a href="lienhe.html">Liên Hệ & Giỏ Hàng</a>
+    </nav>
+
+    <main class="container">
+        <h2 class="page-title">Thông Tin Chi Tiết Sản Phẩm</h2>
+        
+        <div class="detail-wrapper">
+            <div class="detail-left">
+                <img id="detail-img" src="" alt="Ảnh sản phẩm">
+            </div>
+
+            <div class="detail-right">
+                <h1 id="detail-name">Đang tải tên sản phẩm...</h1>
+                <p id="detail-price" class="price-tag">0 đ</p>
+                
+                <div class="desc-box">
+                    <h4>Mô tả chi tiết công dụng:</h4>
+                    <p id="detail-desc">Đang tải mô tả từ cơ sở dữ liệu...</p>
+                </div>
+
+                <div class="quantity-box">
+                    <label>Số lượng mua dự kiến:</label>
+                    <input type="number" id="quantity" value="1" min="1">
+                    <span class="unit-text">(Sản phẩm)</span>
+                </div>
+
+                <div id="box-nut-mua">
+                    <button class="btn-loading" disabled>Đang tải dữ liệu...</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <a href="sanpham.html" class="btn-back">Xem các sản phẩm khác</a>
+    <a href="lienhe.html" class="btn-go">Ghé thăm giỏ hàng của bạn</a>
+    <footer>
+    <p>&copy; 2026 Vật Tư Nông Nghiệp Anh Hai. Tất cả các sản phẩm được phân phối bởi công ty Syngenta Việt Nam và phân bón dầu khí Cà Mau.</p>
+    </footer>
+</main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

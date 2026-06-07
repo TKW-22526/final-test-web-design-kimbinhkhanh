@@ -1,0 +1,228 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f8f3;
+    color:#333;
+    line-height:1.6;
+    background-image: url("../assets/nen2.jpg");
+}
+
+/* ===== MENU ===== */
+.navbar{
+    background:#1b5e20;
+    padding:15px 50px;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active{
+    color:#ffd54f;
+}
+
+/* ===== HERO ===== */
+.hero-section{
+    height:500px;
+    background:
+    linear-gradient(rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),
+    url("../assets/nen2.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-section h1{
+    font-size:55px;
+    margin-bottom:15px;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-section p{
+    font-size:22px;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
+}
+
+/* ===== GIỚI THIỆU ===== */
+.intro-wrapper{
+    display:flex;
+    gap:50px;
+    align-items:center;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.intro-content{
+    flex:1;
+}
+
+.intro-content h2{
+    color:#2e7d32;
+    margin-bottom:20px;
+    font-size:35px;
+}
+
+.intro-content h3{
+    margin-top:25px;
+    color:#1b5e20;
+}
+
+.intro-content p{
+    margin-bottom:15px;
+    text-align:justify;
+}
+
+.intro-content ul{
+    margin-top:15px;
+    padding-left:20px;
+}
+
+.intro-content li{
+    margin-bottom:10px;
+}
+
+.intro-image{
+    flex:1;
+    text-align:center;
+}
+
+.intro-image img{
+    width:100%;
+    max-width:450px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.intro-image img:hover{
+    transform:scale(1.03);
+}
+
+/* ===== THÔNG TIN LIÊN HỆ ===== */
+.contact-info-box{
+    margin-top:50px;
+    background:rgb(224, 220, 220);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.contact-info-box h2{
+    text-align:center;
+    color:#2e7d32;
+    margin-bottom:30px;
+    font-size:32px;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.contact-grid div{
+    background:#f8fff8;
+    padding:20px;
+    border-left:5px solid #4caf50;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.contact-grid div:hover{
+    transform:translateY(-5px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-grid a{
+    color:#1b5e20;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+    display:inline-block;
+    background:#2e7d32;
+    color:white;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#1b5e20;
+    transform:translateY(-3px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+
+    .navbar{
+        flex-wrap:wrap;
+        gap:15px;
+        padding:15px;
+    }
+
+    .hero-section{
+        height:350px;
+        padding:20px;
+    }
+
+    .hero-section h1{
+        font-size:35px;
+    }
+
+    .hero-section p{
+        font-size:18px;
+    }
+
+    .intro-wrapper{
+        flex-direction:column;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+}
+footer {
+    background: #2d5a27;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
